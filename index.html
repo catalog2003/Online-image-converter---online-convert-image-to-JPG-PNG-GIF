@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html lang="en">
+
+<head>
+
+<title>Online image converter - online convert image to JPG, PNG,
+
+ GIF</title>
+
+<meta name="description" content=
+
+"The easiest free online image converter. Convert your image to JPG, JPEG, PNG, GIF,  format.">
+
+<meta name="keywords" content=
+
+"online image converter, convert pictures, convert photos, convert pics, convert png to jpg">
+
+<link rel="stylesheet" type="text/css" href=
+
+"/static/css/style.css?24865">
+
+
+
+
+
+</head>
+
+<body>
+
+<div id="fb-root"></div>
+
+<div class="container">
+
+<div class="top_menu">
+
+<div class="menu">
+
+<ul>
+
+<li><a class="" href="/">Image Resizer</a></li>
+
+<li><a class="" href="/image-compressor">Image
+
+Compressor</a></li>
+
+<li><a class="" href="/image-optimizer">Image
+
+Optimizer</a></li>
+
+<li><a class="currentMenuItem" href=
+
+"/online-image-converter">Image Converter</a></li>
+
+</ul>
+
+</div>
+
+
+
+</div><a href="/online-image-converter"></a>
+
+<div class="logo">
+
+<img src="/static/images/simple-image-resizer-128x128.png"
+
+alt="online image converter logo">
+
+<div>
+
+Simple Image Converter
+
+</div>
+
+<div class="tagline">
+
+Convert image online for free!
+
+</div>
+
+</div>
+
+<div class="clear_both"></div>
+
+
+<div class="left_column">
+
+<div>
+
+<form id="myForm" enctype="multipart/form-data">
+              <div class="form-group">
+                  <label for="fileurl">Image URL:</label>
+                  <input type="text" id="url" placeholder="URL" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label for="image">Select Image:</label>
+                  <input type="file" id="image" class="form-control">
+                  <img style="display: none;" id="selectedImage"/>
+              </div>
+              <div class="form-group">
+                <label for="format">Select Format:</label>
+                <select class="form-control" id="format">
+                  <option>JPEG</option>
+                  <option>PNG</option>
+                  <option>GIF</option>
+                  
+                </select>
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-danger btn-block">
+                      Convert Image
+                  </button>
+              </div>
+          </form>
+      </div>
+
+</div>
+
+</div>
+
+<div class="clear_both"></div>
+
+</div>
+
+<div class="container">
+
+<div class="space_before_feature_description"></div>
+
+
+
+<div class="clear_both"></div>
+
+</div>
+
+<div class="feature_description_container">
+
+<div class="feature_description">
+
+<div>
+
+<h1>Online Image Converter</h1>
+
+<p>Simple <strong>Online Image Converter</strong> is online
+
+application which converts image from one format to another
+
+(eg. jpg to png, png to jpg, jpg to pdf). This Image
+
+Converter supports converting image to the following
+
+formats: JPG, PNG, PDF, GIF, BMP, TIFF.</p>
+
+<p>With the Simple <strong>Online Image Converter</strong>,
+
+all you have to do is upload an image and choose the new
+
+format that you’re looking for. It is easy, fast and free
+
+tool.</p>
+
+<h2>Online Image Converter helps you change image
+
+format.</h2>
+
+<h3>More specific online image conversion tools:</h3>
+
+<ul>
+
+<li><a href="/convert-jpg-to-pdf">Convert JPG to
+
+PDF</a></li>
+
+<li><a href="/convert-jpg-to-png">Convert JPG to
+
+PNG</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="footer">
+
+<div class="footer_item copyright">
+
+Copyright © 2021
+
+</div>
+
+<div class="footer_links">
+
+<div class="footer_item contact">
+
+<a href="/image-optimizer">Image Optimizer</a>
+
+</div>
+
+<div class="footer_item about">
+
+<a href="/image-advice">Image Advice</a>
+
+</div>
+
+<div class="footer_item contact">
+
+<a href="/send-feedback">Send feedback</a>
+
+</div>
+
+<div class="footer_item contact">
+
+<a href="/faq">FAQ</a>
+
+</div>
+
+<div class="footer_item privacy">
+
+<a href="http://www.heapnote.com">Online notes</a>
+
+</div>
+
+<div class="footer_item about">
+
+<a href="/about">About</a>
+
+</div>
+
+</div>
+
+<div class="footer_links footer_links_2">
+
+<div class="footer_item privacy">
+
+<a href="/privacy">Image Privacy</a>
+
+</div>
+
+<div class="footer_item privacy">
+
+<a href="/cookie-policy">Cookie Policy</a>
+
+</div>
+
+<div class="footer_item privacy">
+
+<a href="/privacy-policy">Privacy Policy</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/browser-image-converter@0.1.1/dist/index.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script >    $(document).ready(function () {
+  let imageUrl;
+
+  $("#image").change(function (e) {
+    var file= e.target.files[0];
+    readImage(file)
+  });
+
+  function readImage(file){
+    if (file.type && file.type.indexOf('image') === -1) {
+        alert("file is not an image")
+        return;
+      }
+    
+      const reader = new FileReader();
+      reader.addEventListener('load', (event) => {
+        imageUrl = event.target.result;
+        console.log(imageUrl)
+      });
+      reader.readAsDataURL(file);
+  }
+
+  $("#myForm").submit(function (e) {
+    e.preventDefault();
+
+    if ($("#url").val() !== "") {
+      imageUrl = $("#url").val();
+      convertImage(imageUrl);
+    } else {
+      convertImage(imageUrl);
+    }
+  });
+
+  function convertImage(imageUrl) {
+    var imageType = $("#format option:selected").text();
+    if (browserImageCoverter.downloadImageWithType(imageUrl, imageType)) {
+    } 
+  }
+});   </script>
+
+</html>
